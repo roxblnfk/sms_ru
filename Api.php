@@ -136,8 +136,8 @@ class Api
         $response = explode("\n", $response);
 
         $smsCostResponse = new SmsCostResponse(array_shift($response));
-        $smsCostResponse->price = (float)$response[0];
-        $smsCostResponse->length = (int)$response[1];
+        $smsCostResponse->price = isset($response[0]) ? (float)$response[0] : null;
+        $smsCostResponse->length = isset($response[1]) ? (int)$response[1] : null;
 
         return $smsCostResponse;
     }
@@ -151,7 +151,7 @@ class Api
         $response = explode("\n", $response);
 
         $myBalanceResponse = new MyBalanceResponse(array_shift($response));
-        $myBalanceResponse->balance = (float)$response[0];
+        $myBalanceResponse->balance = isset($response[0]) ? (float)$response[0] : null;
 
         return $myBalanceResponse;
     }
@@ -165,8 +165,8 @@ class Api
         $response = explode("\n", $response);
 
         $myLimitResponse = new MyLimitResponse(array_shift($response));
-        $myLimitResponse->limit = (int)$response[0];
-        $myLimitResponse->current = (int)$response[1];
+        $myLimitResponse->limit = isset($response[0]) ? (int)$response[0] : null;
+        $myLimitResponse->current = isset($response[1]) ? (int)$response[1] : null;
 
         return $myLimitResponse;
     }
